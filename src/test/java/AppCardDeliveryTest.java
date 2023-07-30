@@ -22,7 +22,7 @@ public class AppCardDeliveryTest {
     @Test
     void successfulAuthorization() {
         Configuration.holdBrowserOpen = true;
-        open("http://localhost:7777/");
+        open("http://localhost:9999/");
         $x("//input[contains(@placeholder,'Город')]").setValue("Казань");
         String currentDate = date(4, "dd.MM.yyyy");
         $x("//input[contains(@placeholder,'Дата встречи')]").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
