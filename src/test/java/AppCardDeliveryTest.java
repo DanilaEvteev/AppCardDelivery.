@@ -12,23 +12,23 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
-public class CardDeliveryTest {
+public class AppCardDeliveryTest {
     LocalDate today = LocalDate.now();
     LocalDate newDate = today.plusDays(3);
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     @BeforeEach
     void setUp() {
-        open("http://localhost:9999");
+        open("http://localhost:7777");
     }
 
     @Test
     public void shouldFullAllFormCorrect() {
 
-        $("[data-test-id=city] input").setValue("Тула");
+        $("[data-test-id=city] input").setValue("Казань");
         $("[data-test-id=date] input").sendKeys(formatter.format(newDate));
-        $("[data-test-id=name] input").setValue("Евдокиомов Павел");
-        $("[data-test-id=phone] input").setValue("+79101255555");
+        $("[data-test-id=name] input").setValue("Тестовый Тест");
+        $("[data-test-id=phone] input").setValue("+79211115522");
         $("[data-test-id=agreement]").click();
         $(".button").click();
         $(withText("Успешно!")).shouldBe(Condition.visible, Duration.ofSeconds(15));
